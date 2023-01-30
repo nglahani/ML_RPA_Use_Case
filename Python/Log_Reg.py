@@ -1,7 +1,13 @@
-# -*- coding: utf-8 -*-
 """
-Created on Thu Jan 19 11:42:15 2023
+Python Script to be Invoked by UiPath in Order to Perform a Logistic Regression Classification Model on a UiPath Datatable
 
-@author: nlahanis
-"""
+ """
+ 
+import csv
+
+def clean_data():
+    return 0
+
+def log_reg():
+    return 0
 
