@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1232,792</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>839,1213</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -36,6 +36,11 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Windows.Forms</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -67,17 +72,58 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="400,551.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="478,1148" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="338,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="338,56.6666666666667" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="436,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,259" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="436,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Edge: 2017-2018 Questionnaire Data - Continuous NHANES" sap:VirtualizedContainerService.HintSize="436,533" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="b19d1be3-fa97-42a6-83a4-a732d777bc76" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,316" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Name&quot;).ToString]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="1912, -8, 1936, 1056" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAJcAAACXAdQGLIIAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAE/ElEQVRYR+1WC1PUVRTnc6RpT017YPYysgeaKenYqDhNTSKFGQpZFopoAqKSOsNY0zTWVDoWBIjsLssuj2WBXRZCZNDkEUIKKCgJmEoiYMDp/M7u+bOsfIM4M2fuvec+zu+e171BUzRFU3Tfutx08NLdTgvaN3Y5LdPXm0S2LLFMZOCwpNI87S9PKjP6K/aUW7WvvDKlPN9/vCCu6OQLWwtz/GXgVXtd+QBA4GW7S6UNSyyTNrD/ZpK3Hxxro2c+KZD+gx9YaPFOp7EG/OLnRTQv1m6MH3jfTCtTXBPWgF/e7qDntxbSpACmR5goNKGEor6qpkc25NErvHj2xjyZX55cbhwSeDCUKVDlNakV0rIFaHGCk+ZushrKIZ8AYE50PuV4LlFn7wBd7P6Hqpp66NqNQbKe6pQ1jrPdNDA4Qt0sg/x6/zD93vY3HSu5KCDDWdm0iHHl4aluOnSyiVqv9Mt57sZr1HNzkDzc6hoDwLuHKqmx4yaNjI5R3I91hvnnf2wn82+XpV/T0keg9LJ2WrXPzTcppuPONhobI+q/c5eiv60xDl7ErvHwBUDf5J8XYAu3FVPoDgf9XNpmrBMA9683UQWjAp063ysTCuC5TwspOMbr09M+ANmeDlZQYhxiYoCgS9du06Mf5tE8Bp3p7hBZS9ctcemr8Q56iQFgPca6VwDgNqO4BtPerAaZ0JhQn8JnCrL4zFXjAHDKr/UiB8UeqaXV+9104/awjA9bmiUwwf57lAXAwZwmWQxa+6WHFnxWRE9szpcFCgDB5+QYAGlMgEPiiun1XU5xAyirooPWHqjwDphSsxtlja73ZwSjAPih6E/fchKFan5NOUT3Is4KBYAYwPyMSJOsncnzw/+Oytx39laK+rpa+qDkjPoJSpWhZ/6WAi+ANPMfvuVEEWlVBgC9PVoEkavB6wIFsJpdB3kI+1YpMf0cu9TlG90LAJdBtjwcZZGxAIg8XEVDd0dkA3wWCEBzv7Z1PAvg02d9BWmPLwaQQShMyI6eW0Mis1R7MwiMAqV1QVkAIOCQy6DOvgFakVxGj31kFSVInTnRVnFHVbM3rTJc7QY45D/2iLy8XbIGsuSMcyK7MzwiY2RB6I7xzFE2ADzEJnE1/CWbkG4pmfW05Asnu6eZStj3MJvGQN2F6xR/9Ax9X9BKff1DkkFIu5C4IlGGM+GaIxwPsMplLmwJx89KsG7g+MB5WDubL2kAQP7itvAhCgUqHEwOpdt+qpNSuo9T1Ha6i6w1XZTN0V5cd5VSTzRSGFsD7sAt9WZgvBU7WfFRxwVyc/zUtPSSvfYKxR/zgoFFDADwHaIZ/keA4DCt9doi6vn1kz7mH9/kTVVkSqByuGyyRwjyNVwn8MZgbADQwFvKfQQdTAg/P73FbgQbAghVDH7Wqob+Er4N+sqwZGDh0ZTVR0h5AgBswq2gGKUWKPUWUAQgs9hVGoCBygEaZz252WbIwDj3LT7HvwQrTwAAnhFpFnfACkAL82IjlEKBAkK9938PEENvH/CIG1WGIIPM/3/gz3P59b0HABTBTyifqgwFBw8WXABT4kB/5bCMWkX5NQ6wydIO/FSMTXRqKZbvGL5fYHy98OUKjrFls+ly+RZZXIbNC7c7ctkaJ2ZGmjPC97tt2AeGzP+7hu/curTKwlkb8zJV5j/3zsFKO87DeNp7pl98P8MpmqL/LQUF/QfDnGreuSJqYwAAAABJRU5ErkJggg==" InformativeScreenshot="6ef5274a1aabe237d4e39b7abd8ae977.png" Selector="&lt;html app='msedge.exe' title='2017-2018 *' url='{in_TransactionItem.SpecificContent(&amp;quot;Dataset Path&amp;quot;).ToString}' /&gt;" Url="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>

@@ -1,1 +1,1 @@
-{"OpenedDocuments":"[]","ProjectWatches":"{\"Value\":[]}","ProjectBreakpoints":"{\"Value\":{\"Main.xaml\":[{\"ConditionalExpression\":null,\"ActionExpression\":null,\"ExpectedHitCounter\":null,\"ShouldContinueAfterAction\":false,\"IsTransient\":false,\"IsEnabled\":true,\"Id\":\"9b1ec110-8d5e-4442-9a47-7c42c77beed5\",\"ActivityIdRef\":\"LogMessage_37\",\"ActivityId\":\"1.23\",\"ActivityName\":\"Log Message\"}]}}"}
+{"OpenedDocuments":"[\"Main.xaml\",\"Framework/Process.xaml\"]","ProjectBreakpoints":"{\"Value\":{}}","ProjectWatches":"{\"Value\":[]}"}
