@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -6,10 +6,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>839,1213</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>839,2394</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="50">
+    <scg:List x:TypeArguments="x:String" Capacity="32">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -41,10 +41,11 @@
       <x:String>UiPath.UIAutomationNext.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -81,17 +82,18 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="478,1148" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="554,2329" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="436,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,259" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="512,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,259" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,180" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -103,27 +105,90 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="436,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Edge: 2017-2018 Questionnaire Data - Continuous NHANES" sap:VirtualizedContainerService.HintSize="436,533" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="b19d1be3-fa97-42a6-83a4-a732d777bc76" Version="V2">
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="512,56" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Edge: 2017-2018 Questionnaire Data - Continuous NHANES" sap:VirtualizedContainerService.HintSize="512,974" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="b19d1be3-fa97-42a6-83a4-a732d777bc76" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,316" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,757" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="DataFile" />
+              <Variable x:TypeArguments="x:String" Name="DataFileName" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Name&quot;).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Data File Name&quot;).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Data File&quot;).ToString]" />
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[DataFile]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Data File").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[DataFileName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[in_TransactionItem.SpecificContent("Data File Name").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NClick ClickType="Single" DisplayName="Download Data File" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b19d1be3-fa97-42a6-83a4-a732d777bc76" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&amp;CycleBeginYear=2017" DesignTimeRectangle="828, 410, 138, 49" ElementType="Text" FriendlyName="'ACQ_J Data'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='{0} *' rowName='{1}' tag='A' colName='Data File' tableCol='3' /&gt;&quot;, DataFile, DataFileName)]" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='ACQ_J Data [XPT - 396.3 KB]' type='' tag='A' class='' check:innerText='ACQ_J Data [XPT - 396.3 KB]' /&gt;" Guid="b1aab091-2968-4bc6-8c60-0e2046666eee" ImageBase64="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" InformativeScreenshot="1933ee9598ed537e2a8016a30e5ef929.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='2017-2018 Questionnaire Data - Continuous NHANES' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="367, 396, 296, 78" ElementType="Text" FriendlyName="'Acculturation'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='{0}' /&gt;&quot;, DataFileName)]" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='text-left' aaname='Acculturation' check:innerText='Acculturation' /&gt;" ImageBase64="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" SearchSteps="Selector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
       <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="1912, -8, 1936, 1056" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAJcAAACXAdQGLIIAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAE/ElEQVRYR+1WC1PUVRTnc6RpT017YPYysgeaKenYqDhNTSKFGQpZFopoAqKSOsNY0zTWVDoWBIjsLssuj2WBXRZCZNDkEUIKKCgJmEoiYMDp/M7u+bOsfIM4M2fuvec+zu+e171BUzRFU3Tfutx08NLdTgvaN3Y5LdPXm0S2LLFMZOCwpNI87S9PKjP6K/aUW7WvvDKlPN9/vCCu6OQLWwtz/GXgVXtd+QBA4GW7S6UNSyyTNrD/ZpK3Hxxro2c+KZD+gx9YaPFOp7EG/OLnRTQv1m6MH3jfTCtTXBPWgF/e7qDntxbSpACmR5goNKGEor6qpkc25NErvHj2xjyZX55cbhwSeDCUKVDlNakV0rIFaHGCk+ZushrKIZ8AYE50PuV4LlFn7wBd7P6Hqpp66NqNQbKe6pQ1jrPdNDA4Qt0sg/x6/zD93vY3HSu5KCDDWdm0iHHl4aluOnSyiVqv9Mt57sZr1HNzkDzc6hoDwLuHKqmx4yaNjI5R3I91hvnnf2wn82+XpV/T0keg9LJ2WrXPzTcppuPONhobI+q/c5eiv60xDl7ErvHwBUDf5J8XYAu3FVPoDgf9XNpmrBMA9683UQWjAp063ysTCuC5TwspOMbr09M+ANmeDlZQYhxiYoCgS9du06Mf5tE8Bp3p7hBZS9ctcemr8Q56iQFgPca6VwDgNqO4BtPerAaZ0JhQn8JnCrL4zFXjAHDKr/UiB8UeqaXV+9104/awjA9bmiUwwf57lAXAwZwmWQxa+6WHFnxWRE9szpcFCgDB5+QYAGlMgEPiiun1XU5xAyirooPWHqjwDphSsxtlja73ZwSjAPih6E/fchKFan5NOUT3Is4KBYAYwPyMSJOsncnzw/+Oytx39laK+rpa+qDkjPoJSpWhZ/6WAi+ANPMfvuVEEWlVBgC9PVoEkavB6wIFsJpdB3kI+1YpMf0cu9TlG90LAJdBtjwcZZGxAIg8XEVDd0dkA3wWCEBzv7Z1PAvg02d9BWmPLwaQQShMyI6eW0Mis1R7MwiMAqV1QVkAIOCQy6DOvgFakVxGj31kFSVInTnRVnFHVbM3rTJc7QY45D/2iLy8XbIGsuSMcyK7MzwiY2RB6I7xzFE2ADzEJnE1/CWbkG4pmfW05Asnu6eZStj3MJvGQN2F6xR/9Ax9X9BKff1DkkFIu5C4IlGGM+GaIxwPsMplLmwJx89KsG7g+MB5WDubL2kAQP7itvAhCgUqHEwOpdt+qpNSuo9T1Ha6i6w1XZTN0V5cd5VSTzRSGFsD7sAt9WZgvBU7WfFRxwVyc/zUtPSSvfYKxR/zgoFFDADwHaIZ/keA4DCt9doi6vn1kz7mH9/kTVVkSqByuGyyRwjyNVwn8MZgbADQwFvKfQQdTAg/P73FbgQbAghVDH7Wqob+Er4N+sqwZGDh0ZTVR0h5AgBswq2gGKUWKPUWUAQgs9hVGoCBygEaZz252WbIwDj3LT7HvwQrTwAAnhFpFnfACkAL82IjlEKBAkK9938PEENvH/CIG1WGIIPM/3/gz3P59b0HABTBTyifqgwFBw8WXABT4kB/5bCMWkX5NQ6wydIO/FSMTXRqKZbvGL5fYHy98OUKjrFls+ly+RZZXIbNC7c7ctkaJ2ZGmjPC97tt2AeGzP+7hu/curTKwlkb8zJV5j/3zsFKO87DeNp7pl98P8MpmqL/LQUF/QfDnGreuSJqYwAAAABJRU5ErkJggg==" InformativeScreenshot="6ef5274a1aabe237d4e39b7abd8ae977.png" Selector="&lt;html app='msedge.exe' title='2017-2018 *' url='{in_TransactionItem.SpecificContent(&amp;quot;Dataset Path&amp;quot;).ToString}' /&gt;" Url="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
+        <uix:TargetApp Area="-8, -8, 1296, 696" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAJcAAACXAdQGLIIAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAE/ElEQVRYR+1WC1PUVRTnc6RpT017YPYysgeaKenYqDhNTSKFGQpZFopoAqKSOsNY0zTWVDoWBIjsLssuj2WBXRZCZNDkEUIKKCgJmEoiYMDp/M7u+bOsfIM4M2fuvec+zu+e171BUzRFU3Tfutx08NLdTgvaN3Y5LdPXm0S2LLFMZOCwpNI87S9PKjP6K/aUW7WvvDKlPN9/vCCu6OQLWwtz/GXgVXtd+QBA4GW7S6UNSyyTNrD/ZpK3Hxxro2c+KZD+gx9YaPFOp7EG/OLnRTQv1m6MH3jfTCtTXBPWgF/e7qDntxbSpACmR5goNKGEor6qpkc25NErvHj2xjyZX55cbhwSeDCUKVDlNakV0rIFaHGCk+ZushrKIZ8AYE50PuV4LlFn7wBd7P6Hqpp66NqNQbKe6pQ1jrPdNDA4Qt0sg/x6/zD93vY3HSu5KCDDWdm0iHHl4aluOnSyiVqv9Mt57sZr1HNzkDzc6hoDwLuHKqmx4yaNjI5R3I91hvnnf2wn82+XpV/T0keg9LJ2WrXPzTcppuPONhobI+q/c5eiv60xDl7ErvHwBUDf5J8XYAu3FVPoDgf9XNpmrBMA9683UQWjAp063ysTCuC5TwspOMbr09M+ANmeDlZQYhxiYoCgS9du06Mf5tE8Bp3p7hBZS9ctcemr8Q56iQFgPca6VwDgNqO4BtPerAaZ0JhQn8JnCrL4zFXjAHDKr/UiB8UeqaXV+9104/awjA9bmiUwwf57lAXAwZwmWQxa+6WHFnxWRE9szpcFCgDB5+QYAGlMgEPiiun1XU5xAyirooPWHqjwDphSsxtlja73ZwSjAPih6E/fchKFan5NOUT3Is4KBYAYwPyMSJOsncnzw/+Oytx39laK+rpa+qDkjPoJSpWhZ/6WAi+ANPMfvuVEEWlVBgC9PVoEkavB6wIFsJpdB3kI+1YpMf0cu9TlG90LAJdBtjwcZZGxAIg8XEVDd0dkA3wWCEBzv7Z1PAvg02d9BWmPLwaQQShMyI6eW0Mis1R7MwiMAqV1QVkAIOCQy6DOvgFakVxGj31kFSVInTnRVnFHVbM3rTJc7QY45D/2iLy8XbIGsuSMcyK7MzwiY2RB6I7xzFE2ADzEJnE1/CWbkG4pmfW05Asnu6eZStj3MJvGQN2F6xR/9Ax9X9BKff1DkkFIu5C4IlGGM+GaIxwPsMplLmwJx89KsG7g+MB5WDubL2kAQP7itvAhCgUqHEwOpdt+qpNSuo9T1Ha6i6w1XZTN0V5cd5VSTzRSGFsD7sAt9WZgvBU7WfFRxwVyc/zUtPSSvfYKxR/zgoFFDADwHaIZ/keA4DCt9doi6vn1kz7mH9/kTVVkSqByuGyyRwjyNVwn8MZgbADQwFvKfQQdTAg/P73FbgQbAghVDH7Wqob+Er4N+sqwZGDh0ZTVR0h5AgBswq2gGKUWKPUWUAQgs9hVGoCBygEaZz252WbIwDj3LT7HvwQrTwAAnhFpFnfACkAL82IjlEKBAkK9938PEENvH/CIG1WGIIPM/3/gz3P59b0HABTBTyifqgwFBw8WXABT4kB/5bCMWkX5NQ6wydIO/FSMTXRqKZbvGL5fYHy98OUKjrFls+ly+RZZXIbNC7c7ctkaJ2ZGmjPC97tt2AeGzP+7hu/curTKwlkb8zJV5j/3zsFKO87DeNp7pl98P8MpmqL/LQUF/QfDnGreuSJqYwAAAABJRU5ErkJggg==" InformativeScreenshot="8f5cfa8f0e18467f1129596c3499f634.png" Selector="&lt;html app='msedge.exe' title='2017-2018 Questionnaire Data - Continuous NHANES' /&gt;" Url="https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&amp;CycleBeginYear=2017" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,700" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,621" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Edge: 2017-2018 Questionnaire Data - Continuous NHANES" sap:VirtualizedContainerService.HintSize="434,533" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="b19d1be3-fa97-42a6-83a4-a732d777bc76" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,316" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[in_TransactionItem.SpecificContent(&quot;Dataset Name&quot;).ToString]" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="1912, -8, 1936, 1056" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAAJcAAACXAdQGLIIAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAE/ElEQVRYR+1WC1PUVRTnc6RpT017YPYysgeaKenYqDhNTSKFGQpZFopoAqKSOsNY0zTWVDoWBIjsLssuj2WBXRZCZNDkEUIKKCgJmEoiYMDp/M7u+bOsfIM4M2fuvec+zu+e171BUzRFU3Tfutx08NLdTgvaN3Y5LdPXm0S2LLFMZOCwpNI87S9PKjP6K/aUW7WvvDKlPN9/vCCu6OQLWwtz/GXgVXtd+QBA4GW7S6UNSyyTNrD/ZpK3Hxxro2c+KZD+gx9YaPFOp7EG/OLnRTQv1m6MH3jfTCtTXBPWgF/e7qDntxbSpACmR5goNKGEor6qpkc25NErvHj2xjyZX55cbhwSeDCUKVDlNakV0rIFaHGCk+ZushrKIZ8AYE50PuV4LlFn7wBd7P6Hqpp66NqNQbKe6pQ1jrPdNDA4Qt0sg/x6/zD93vY3HSu5KCDDWdm0iHHl4aluOnSyiVqv9Mt57sZr1HNzkDzc6hoDwLuHKqmx4yaNjI5R3I91hvnnf2wn82+XpV/T0keg9LJ2WrXPzTcppuPONhobI+q/c5eiv60xDl7ErvHwBUDf5J8XYAu3FVPoDgf9XNpmrBMA9683UQWjAp063ysTCuC5TwspOMbr09M+ANmeDlZQYhxiYoCgS9du06Mf5tE8Bp3p7hBZS9ctcemr8Q56iQFgPca6VwDgNqO4BtPerAaZ0JhQn8JnCrL4zFXjAHDKr/UiB8UeqaXV+9104/awjA9bmiUwwf57lAXAwZwmWQxa+6WHFnxWRE9szpcFCgDB5+QYAGlMgEPiiun1XU5xAyirooPWHqjwDphSsxtlja73ZwSjAPih6E/fchKFan5NOUT3Is4KBYAYwPyMSJOsncnzw/+Oytx39laK+rpa+qDkjPoJSpWhZ/6WAi+ANPMfvuVEEWlVBgC9PVoEkavB6wIFsJpdB3kI+1YpMf0cu9TlG90LAJdBtjwcZZGxAIg8XEVDd0dkA3wWCEBzv7Z1PAvg02d9BWmPLwaQQShMyI6eW0Mis1R7MwiMAqV1QVkAIOCQy6DOvgFakVxGj31kFSVInTnRVnFHVbM3rTJc7QY45D/2iLy8XbIGsuSMcyK7MzwiY2RB6I7xzFE2ADzEJnE1/CWbkG4pmfW05Asnu6eZStj3MJvGQN2F6xR/9Ax9X9BKff1DkkFIu5C4IlGGM+GaIxwPsMplLmwJx89KsG7g+MB5WDubL2kAQP7itvAhCgUqHEwOpdt+qpNSuo9T1Ha6i6w1XZTN0V5cd5VSTzRSGFsD7sAt9WZgvBU7WfFRxwVyc/zUtPSSvfYKxR/zgoFFDADwHaIZ/keA4DCt9doi6vn1kz7mH9/kTVVkSqByuGyyRwjyNVwn8MZgbADQwFvKfQQdTAg/P73FbgQbAghVDH7Wqob+Er4N+sqwZGDh0ZTVR0h5AgBswq2gGKUWKPUWUAQgs9hVGoCBygEaZz252WbIwDj3LT7HvwQrTwAAnhFpFnfACkAL82IjlEKBAkK9938PEENvH/CIG1WGIIPM/3/gz3P59b0HABTBTyifqgwFBw8WXABT4kB/5bCMWkX5NQ6wydIO/FSMTXRqKZbvGL5fYHy98OUKjrFls+ly+RZZXIbNC7c7ctkaJ2ZGmjPC97tt2AeGzP+7hu/curTKwlkb8zJV5j/3zsFKO87DeNp7pl98P8MpmqL/LQUF/QfDnGreuSJqYwAAAABJRU5ErkJggg==" InformativeScreenshot="6ef5274a1aabe237d4e39b7abd8ae977.png" Selector="&lt;html app='msedge.exe' title='2017-2018 *' url='{in_TransactionItem.SpecificContent(&amp;quot;Dataset Path&amp;quot;).ToString}' /&gt;" Url="[in_TransactionItem.SpecificContent(&quot;Dataset Path&quot;).ToString]" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
   </Sequence>
 </Activity>
