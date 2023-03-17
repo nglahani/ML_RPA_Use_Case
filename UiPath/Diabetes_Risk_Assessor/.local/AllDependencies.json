@@ -6764,15 +6764,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aackerman\\.nuget\\packages\\": {}
+    "C:\\Users\\khirst\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Diabetes_Risk_Assessor",
       "projectName": "Diabetes_Risk_Assessor",
-      "projectPath": "C:\\Users\\aackerman\\OneDrive - Huron Consulting Group\\ML_RPA_Use_Cases\\UiPath\\Diabetes_Risk_Assessor\\.local",
-      "packagesPath": "C:\\Users\\aackerman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aackerman\\OneDrive - Huron Consulting Group\\ML_RPA_Use_Cases\\UiPath\\Diabetes_Risk_Assessor\\.local"
+      "projectPath": "C:\\Users\\khirst\\OneDrive - Huron Consulting Group\\Desktop\\RPA\\VA Project\\ML_RPA_Use_Cases\\UiPath\\Diabetes_Risk_Assessor\\.local",
+      "packagesPath": "C:\\Users\\khirst\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\khirst\\OneDrive - Huron Consulting Group\\Desktop\\RPA\\VA Project\\ML_RPA_Use_Cases\\UiPath\\Diabetes_Risk_Assessor\\.local"
     },
     "frameworks": {
       "net461": {
@@ -6798,7 +6798,7 @@
             "version": "[22.4.7, 22.4.7]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\aackerman\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\khirst\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
