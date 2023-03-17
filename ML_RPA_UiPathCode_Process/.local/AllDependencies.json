@@ -21255,18 +21255,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\johsnyder\\.nuget\\packages\\": {},
-    "C:\\Users\\johsnyder\\AppData\\Local\\UiPath\\NugetFallbackFolder": {}
+    "C:\\Users\\khirst\\.nuget\\packages\\": {},
+    "C:\\Users\\khirst\\AppData\\Local\\UiPath\\NugetFallbackFolder": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "ML_RPA_UiPathCode_Process",
       "projectName": "ML_RPA_UiPathCode_Process",
-      "projectPath": "C:\\Users\\johsnyder\\OneDrive - Huron Consulting Group\\Documents\\ML_RPA_Use_Cases\\ML_RPA_UiPathCode_Process\\.local",
-      "packagesPath": "C:\\Users\\johsnyder\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johsnyder\\OneDrive - Huron Consulting Group\\Documents\\ML_RPA_Use_Cases\\ML_RPA_UiPathCode_Process\\.local",
+      "projectPath": "C:\\Users\\khirst\\OneDrive - Huron Consulting Group\\Desktop\\RPA\\VA Project\\ML_RPA_Use_Cases\\ML_RPA_UiPathCode_Process\\.local",
+      "packagesPath": "C:\\Users\\khirst\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\khirst\\OneDrive - Huron Consulting Group\\Desktop\\RPA\\VA Project\\ML_RPA_Use_Cases\\ML_RPA_UiPathCode_Process\\.local",
       "fallbackFolders": [
-        "C:\\Users\\johsnyder\\AppData\\Local\\UiPath\\NugetFallbackFolder"
+        "C:\\Users\\khirst\\AppData\\Local\\UiPath\\NugetFallbackFolder"
       ]
     },
     "frameworks": {
@@ -21298,7 +21298,7 @@
             "version": "[23.2.0-preview, 23.2.0-preview]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\johsnyder\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\khirst\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
