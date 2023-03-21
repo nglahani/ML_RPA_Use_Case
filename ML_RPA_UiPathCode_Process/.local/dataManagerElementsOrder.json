@@ -12,11 +12,21 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "int_Counter&Sequence_9",
+        "string_TempQuestionCoefficient&Sequence_10",
+        "dt_TempQuestionCrosswalk&Sequence_10",
+        "dt_AnswersByQuestion&Sequence_9",
+        "string_Answer&Sequence_10",
+        "string_QuestionCode&Sequence_10",
+        "dt_QuestionnaireWithAnswers&Sequence_9",
         "v_strInputHealthCondition&Sequence_1",
         "v_strClassificationFileLocation&Sequence_3",
         "v_dtQuestionaire&Sequence_3"
       ],
-      "ArgumentsSectionElementsOrder": null,
+      "ArgumentsSectionElementsOrder": [
+        "in_strQuestionaireFilePath",
+        "in_ConditionCrosswalkFilePath"
+      ],
       "ConstantsSectionElementsOrder": null,
       "AddedNamespaces": null
     }
