@@ -1,0 +1,17 @@
+Asthma
+Anemia
+Arthritis
+Gout
+Congestive Heart Failure
+Coronary Heart Disease
+Angina
+Stroke
+Thryroid Problems
+Emphysema
+Chronic Broncitis
+COPD
+General Liver (Fatty Liver, Liver Fibrosis, Liver Cirrhosis, Viral Hepatitas, Autoimmune Hepatitis)
+Jaundice
+Gallstones
+Diabetes
+Cancer
