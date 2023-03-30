@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,3861</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1217.3333333333333,4681.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
@@ -44,7 +44,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="92">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -90,27 +90,32 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="914,3840" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="834,4616.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="v_strInputHealthCondition" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_TempQuestionCoefficient" />
+      <Variable x:TypeArguments="x:String" Name="str_dt_TempQuestionCoefficient" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Which Condition Will be Questioned" sap:VirtualizedContainerService.HintSize="852,297" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="What Healh Condition would you like to investigate?" OptionsString="Cancer;Diabetes" Title="Health Condition">
+    <ui:BuildDataTable DataTable="[dt_TempQuestionCoefficient]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="792,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Coefficient&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xD;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xD;&#xA;        &lt;xs:field xpath=&quot;Coefficient&quot; /&gt;&#xD;&#xA;      &lt;/xs:unique&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Which Condition Will be Questioned" sap:VirtualizedContainerService.HintSize="792,300.6666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="What Healh Condition would you like to investigate?" OptionsString="Cancer;Diabetes" Title="Health Condition">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[v_strInputHealthCondition]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch - To Proper Condition Procedure" Expression="[v_strInputHealthCondition]" sap:VirtualizedContainerService.HintSize="852,3392" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - To Proper Condition Procedure" Expression="[v_strInputHealthCondition]" sap:VirtualizedContainerService.HintSize="792,3462" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Went the default route." />
       </Switch.Default>
-      <Sequence x:Key="Cancer" sap:VirtualizedContainerService.HintSize="812,3203" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence x:Key="Cancer" sap:VirtualizedContainerService.HintSize="752,3269.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="v_strClassificationFileLocation" />
           <Variable x:TypeArguments="sd:DataTable" Name="v_dtQuestionaire" />
@@ -120,21 +125,21 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Cancer Sequence" sap:VirtualizedContainerService.HintSize="750,3092" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Cancer Sequence" sap:VirtualizedContainerService.HintSize="710,3182" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="688,53" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="648,54" sap2010:WorkflowViewState.IdRef="CommentOut_1">
             <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,430" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,408.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap2010:Annotation.AnnotationText="To be changed later" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign sap2010:Annotation.AnnotationText="To be changed later" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[v_strClassificationFileLocation]</OutArgument>
                   </Assign.To>
@@ -147,7 +152,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <ui:InvokeCode Code="{x:Null}" ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="434,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                <ui:InvokeCode Code="{x:Null}" ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="434,165.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
                   <ui:InvokeCode.Arguments>
                     <scg:Dictionary x:TypeArguments="x:String, Argument" />
                   </ui:InvokeCode.Arguments>
@@ -161,25 +166,25 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:CommentOut>
-          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[v_dtQuestionaire]" DisplayName="Read Range Workbook - Read in Questions to be asked" sap:VirtualizedContainerService.HintSize="688,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[v_strInputHealthCondition]" WorkbookPath="[in_strQuestionaireFilePath]" />
-          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[v_dtQuestionaire]" DisplayName="For Each Row in Data Table - Ask the User the Question and Receive Answer" sap:VirtualizedContainerService.HintSize="688,711" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[v_dtQuestionaire]" DisplayName="Read Range Workbook - Read in Questions to be asked" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[v_strInputHealthCondition]" WorkbookPath="[in_strQuestionaireFilePath]" />
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[v_dtQuestionaire]" DisplayName="For Each Row in Data Table - Ask the User the Question and Receive Answer" sap:VirtualizedContainerService.HintSize="648,697.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,593" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,577.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Questionaire Question" sap:VirtualizedContainerService.HintSize="388,297" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="[CurrentRow(1).ToString]" OptionsString="[CurrentRow(2).ToString]" Title="Condition-Related Question">
+                  <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Questionaire Question" sap:VirtualizedContainerService.HintSize="334,300.6666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="[CurrentRow(1).ToString]" OptionsString="[CurrentRow(2).ToString]" Title="Condition-Related Question">
                     <ui:InputDialog.Result>
                       <OutArgument x:TypeArguments="x:Object">[CurrentRow(3)]</OutArgument>
                     </ui:InputDialog.Result>
                   </ui:InputDialog>
-                  <If sap2010:Annotation.AnnotationText="If provider presses enter to skip a question, or does not choose one of the answer options, set answer to &quot;don't know&quot;" Condition="[string.isNullorEmpty(CurrentRow(3).ToString)]" DisplayName="If Question is not Answered" sap:VirtualizedContainerService.HintSize="388,145" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If sap2010:Annotation.AnnotationText="If provider presses enter to skip a question, or does not choose one of the answer options, set answer to &quot;don't know&quot;" Condition="[string.isNullorEmpty(CurrentRow(3).ToString)]" DisplayName="If Question is not Answered" sap:VirtualizedContainerService.HintSize="334,149.33333333333334" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -188,13 +193,13 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,172.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Object">[CurrentRow(3)]</OutArgument>
                           </Assign.To>
@@ -205,7 +210,7 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence sap:VirtualizedContainerService.HintSize="300,81" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence sap:VirtualizedContainerService.HintSize="300,81.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -218,30 +223,8 @@
               </ActivityAction>
             </ui:ForEachRow.Body>
           </ui:ForEachRow>
-          <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[v_dtQuestionaire]" DisplayName="Write Range Workbook - Write the Answer Back to the Workbook" sap:VirtualizedContainerService.HintSize="688,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[v_strInputHealthCondition]" WorkbookPath="[in_strQuestionaireFilePath]" />
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="688,53" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,276" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeCode Code="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="388,165" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
-                  <ui:InvokeCode.Arguments>
-                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                  </ui:InvokeCode.Arguments>
-                </ui:InvokeCode>
-              </Sequence>
-            </ui:CommentOut.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CommentOut>
-          <Sequence sap:VirtualizedContainerService.HintSize="688,1760" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[v_dtQuestionaire]" DisplayName="Write Range Workbook - Write the Answer Back to the Workbook" sap:VirtualizedContainerService.HintSize="648,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[v_strInputHealthCondition]" WorkbookPath="[in_strQuestionaireFilePath]" />
+          <Sequence sap:VirtualizedContainerService.HintSize="648,1956" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dt_QuestionnaireWithAnswers" />
               <Variable x:TypeArguments="sd:DataTable" Name="dt_AnswersByQuestion" />
@@ -252,8 +235,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_QuestionnaireWithAnswers]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="626,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[v_strInputHealthCondition]" WorkbookPath="[in_strQuestionaireFilePath]" />
-            <Assign sap2010:Annotation.AnnotationText="Set to 2 as the first question is row 2. Used to add Coefficient to each question" sap:VirtualizedContainerService.HintSize="626,127" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_QuestionnaireWithAnswers]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="586,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[v_strInputHealthCondition]" WorkbookPath="[in_strQuestionaireFilePath]" />
+            <Assign sap2010:Annotation.AnnotationText="Set to 2 as the first question is row 2. Used to add Coefficient to each question" sap:VirtualizedContainerService.HintSize="586,130.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[int_Counter]</OutArgument>
               </Assign.To>
@@ -266,13 +249,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Assign>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Creates a DT containing the question codes and the answer entered by provider" DataTable="[dt_QuestionnaireWithAnswers]" DisplayName="Create DT AnswersByQuestion" sap:VirtualizedContainerService.HintSize="626,1354" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Creates a DT containing the question codes and the answer entered by provider" DataTable="[dt_QuestionnaireWithAnswers]" DisplayName="Create DT AnswersByQuestion" sap:VirtualizedContainerService.HintSize="586,1546.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,1205" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1396" sap2010:WorkflowViewState.IdRef="Sequence_10">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="string_QuestionCode" />
                       <Variable x:TypeArguments="x:String" Name="string_Answer" />
@@ -284,7 +267,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="530,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="510,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -306,8 +289,8 @@
                         </scg:List>
                       </ui:MultipleAssign.AssignOperations>
                     </ui:MultipleAssign>
-                    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_TempQuestionCrosswalk]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="530,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[string_QuestionCode]" WorkbookPath="[in_ConditionCrosswalkFilePath + v_strInputHealthCondition + &quot; Crosswalk.xlsx&quot;]" />
-                    <ui:FilterDataTable DataTable="[dt_TempQuestionCrosswalk]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="530,163" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_TempQuestionCrosswalk]" SelectColumnsMode="Keep">
+                    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_TempQuestionCrosswalk]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="510,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="[string_QuestionCode]" WorkbookPath="[in_ConditionCrosswalkFilePath + v_strInputHealthCondition + &quot; Crosswalk.xlsx&quot;]" />
+                    <ui:FilterDataTable DataTable="[dt_TempQuestionCrosswalk]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="510,164" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_TempQuestionCrosswalk]" SelectColumnsMode="Keep">
                       <ui:FilterDataTable.Filters>
                         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                           <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -326,19 +309,19 @@
                         </scg:List>
                       </ui:FilterDataTable.SelectColumns>
                     </ui:FilterDataTable>
-                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_TempQuestionCrosswalk]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="530,312" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_TempQuestionCrosswalk]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510,524" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="FilteredRow" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,404" sap2010:WorkflowViewState.IdRef="Sequence_11">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[string_TempQuestionCoefficient]</OutArgument>
                               </Assign.To>
@@ -346,12 +329,13 @@
                                 <InArgument x:TypeArguments="x:String">[FilteredRow("Coefficient").ToString]</InArgument>
                               </Assign.Value>
                             </Assign>
+                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{string_TempQuestionCoefficient}]" DataTable="[dt_TempQuestionCoefficient]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,191.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                           </Sequence>
                         </ActivityAction>
                       </ui:ForEachRow.Body>
                     </ui:ForEachRow>
-                    <ui:WriteCell Cell="[&quot;E&quot; + int_Counter.ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="530,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[v_strInputHealthCondition]" Text="[string_TempQuestionCoefficient]" WorkbookPath="[in_strQuestionaireFilePath]" />
-                    <Assign sap:VirtualizedContainerService.HintSize="530,83" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <ui:WriteCell Cell="[&quot;E&quot; + int_Counter.ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="510,116" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[v_strInputHealthCondition]" Text="[string_TempQuestionCoefficient]" WorkbookPath="[in_strQuestionaireFilePath]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[int_Counter]</OutArgument>
                       </Assign.To>
@@ -374,5 +358,29 @@
         </Sequence>
       </Sequence>
     </Switch>
+    <ui:OutputDataTable Text="{x:Null}" DataTable="[dt_TempQuestionCoefficient]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="792,82" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="792,92" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[str_dt_TempQuestionCoefficient]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="792,332.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,252.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeCode Code="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="334,165.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+            <ui:InvokeCode.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
   </Sequence>
 </Activity>

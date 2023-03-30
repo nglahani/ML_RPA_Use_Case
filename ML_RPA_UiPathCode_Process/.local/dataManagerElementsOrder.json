@@ -3,15 +3,17 @@
     {
       "Path": null,
       "SortBy": 0,
-      "VariablesSectionElementsOrder": null,
+      "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": null,
-      "ConstantsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
     {
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "str_dt_TempQuestionCoefficient&Sequence_1",
+        "dt_TempQuestionCoefficient&Sequence_1",
         "int_Counter&Sequence_9",
         "string_TempQuestionCoefficient&Sequence_10",
         "dt_TempQuestionCrosswalk&Sequence_10",
@@ -27,7 +29,7 @@
         "in_strQuestionaireFilePath",
         "in_ConditionCrosswalkFilePath"
       ],
-      "ConstantsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }
   ]
