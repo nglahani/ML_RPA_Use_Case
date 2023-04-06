@@ -1,5 +1,5 @@
 {
-  "name": "ML_RPA_UiPathCode_Process",
+  "name": "ML_RPA_UiPathCode_Process_Legacy",
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
@@ -49,7 +49,7 @@
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "f8e7d580-31e4-4b43-9218-0cf8672ac791",
+      "uniqueId": "51e25b5f-03ff-449a-afef-6bc9bcd776a0",
       "input": [],
       "output": []
     }
@@ -57,5 +57,5 @@
   "isTemplate": false,
   "templateProjectData": {},
   "publishData": {},
-  "targetFramework": "Windows"
+  "targetFramework": "Legacy"
 }
